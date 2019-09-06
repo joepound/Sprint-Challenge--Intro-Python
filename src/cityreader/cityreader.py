@@ -93,11 +93,16 @@ Tucson: (32.1558,-110.8777)
 Salt Lake City: (40.7774,-111.9301)
 """
 
+# Essentially need to check if a city's latitude and longitude values are
+# between the given latitude and longitude values respectively
+
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     # Go through each city and check to see if it falls within
     # the specified coordinates.
     return [city for city in cities if (
+        # Since we don't know which lat/long value will be smaller/larger,
+        # use min & max to shorten code, and then insure by casting to float
         city.lat >= float(min(lat1, lat2)) and
         city.lat <= float(max(lat1, lat2)) and
         city.lon >= float(min(lon1, lon2)) and

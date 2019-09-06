@@ -41,6 +41,8 @@ print(b)
 # Write a list comprehension that creates a list of names of everyone
 # whose name starts with any letter between 'C' and 'G' inclusive.
 print("Starts between C and G, inclusive:")
+# Making use of Unicode character values with the ord method
+# to allow for range comparison
 c = [human.name for human in humans if ord(human.name[0]) in range(67, 72)]
 print(c)
 
@@ -71,5 +73,6 @@ print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
+# n to the 1/2 power is the same as getting the square root
 h = [human.age ** 0.5 for human in humans]
 print(h)
