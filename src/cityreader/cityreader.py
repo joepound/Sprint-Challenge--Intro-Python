@@ -10,6 +10,22 @@ class City:
         self.lat = lat
         self.lon = lon
 
+    def __getattr__(self, attr):
+        return None
+
+    def __str__(self):
+        return (
+            "name: %-15s | lat: %-10f | lon: %-10f"
+            % (self.name, self.lat, self.lon)
+        )
+
+    def __repr__(self):
+        return (
+            "{}({}, {}, {})".format(
+                type(self).__name__, self.name, self.lat, self.lon
+            )
+        )
+
 
 """
 We have a collection of US cities with population over 750,000 stored in the
@@ -23,19 +39,19 @@ Store the instances in the "cities" list, below.
 
 Note that the first line of the CSV is header that describes the fields--this
 should not be loaded into a City object.
+
+For each city record, create a new City instance and add it to the
+`cities` list.
 """
 cities = []
 
 
-"""
-For each city record, create a new City instance and add it to the
-`cities` list
-"""
-
-
 def cityreader(cities=[]):
-    # TODO Implement the functionality to read from the 'cities.csv' file
-
+    from csv import reader
+    with open("cities.csv") as cities_file:
+        next(cities_file)
+        for line in reader(cities_file):
+            cities.append(City(line[0], float(line[3]), float(line[4])))
     return cities
 
 
