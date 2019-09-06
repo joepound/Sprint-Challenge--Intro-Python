@@ -52,14 +52,14 @@ def cityreader(cities=[]):
         next(cities_file)
         for line in reader(cities_file):
             cities.append(City(line[0], float(line[3]), float(line[4])))
+    cities_file.close()
     return cities
 
 
 cityreader(cities)
 
-# Print the list of cities (name, lat, lon), 1 record per line.
-# for c in cities:
-#     print(c)
+# Print the list of cities(name, lat, lon), 1 record per line.
+print(*(city for city in cities), sep="\n")
 
 """
 STRETCH GOAL:
