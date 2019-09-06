@@ -28,7 +28,7 @@ class Vehicle:
         pass
 
     def __repr__(self):
-        return type(self).__name__
+        return f"{type(self).__name__}()"
 
 
 # Ground vehicles
@@ -39,7 +39,7 @@ class GroundVehicle(Vehicle):
         pass
 
     def __repr__(self):
-        return type(self).__name__
+        return f"{type(self).__name__}()"
 
 
 class Car(GroundVehicle):
@@ -47,7 +47,7 @@ class Car(GroundVehicle):
         pass
 
     def __repr__(self):
-        return type(self).__name__
+        return f"{type(self).__name__}()"
 
 
 class Motorcycle(GroundVehicle):
@@ -55,7 +55,7 @@ class Motorcycle(GroundVehicle):
         pass
 
     def __repr__(self):
-        return type(self).__name__
+        return f"{type(self).__name__}()"
 
 
 # Flight vehicles
@@ -66,7 +66,7 @@ class FlightVehicle(Vehicle):
         pass
 
     def __repr__(self):
-        return type(self).__name__
+        return f"{type(self).__name__}()"
 
 
 # Aircraft
@@ -77,7 +77,7 @@ class Airplane(FlightVehicle):
         pass
 
     def __repr__(self):
-        return type(self).__name__
+        return f"{type(self).__name__}()"
 
 
 # Spacecraft
@@ -88,4 +88,4 @@ class Starship(FlightVehicle):
         pass
 
     def __repr__(self):
-        return type(self).__name__
+        return f"{type(self).__name__}()"
