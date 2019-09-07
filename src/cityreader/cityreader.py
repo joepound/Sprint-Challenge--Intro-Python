@@ -103,8 +103,6 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
     return [city for city in cities if (
         # Since we don't know which lat/long value will be smaller/larger,
         # use min & max to shorten code, and then insure by casting to float
-        city.lat >= float(min(lat1, lat2)) and
-        city.lat <= float(max(lat1, lat2)) and
-        city.lon >= float(min(lon1, lon2)) and
-        city.lon <= float(max(lon1, lon2))
+        float(min(lat1, lat2)) <= city.lat <= float(max(lat1, lat2)) and
+        float(min(lon1, lon2)) <= city.lon <= float(max(lon1, lon2))
     )]
